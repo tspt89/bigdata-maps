@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule,  ReactiveFormsModule} from "@angular/forms";
 
 import { MarkerService } from './services/marker.service';
 import { PopUpService } from './services/pop-up.service';
@@ -22,7 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [MarkerService, PopUpService],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+  providers: [MarkerService, PopUpService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
